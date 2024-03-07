@@ -1,16 +1,16 @@
 pipeline {
     agent any
   
-    stages (
+    stages {
         stage('Build') {
             steps {
-              build 'PES22UG21CS586-1'
+              build 'PES2UG21CS586-1'
               sh 'g++ main.cpp-o output'
             } 
         }
         stage('Test') {
             steps {
-                sh'./output'
+                sh './output'
               
             }
         }
@@ -18,14 +18,14 @@ pipeline {
             steps {
               echo 'Deploy'
             }
-          }
-      }
+        }
+     }
               
-      post {
+    post {
           failure {
-               error 'Pipeline Failed
+              error 'Pipeline Failed
           }
-      }
+     }
     
-  }  
+}  
               
