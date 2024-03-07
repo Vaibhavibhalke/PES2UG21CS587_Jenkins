@@ -1,26 +1,37 @@
-  pipeline {
+ pipeline {
     agent any
     stages {
         stage('Build') {
             steps {
-                build 'PES2UG21CS586-1'
-                sh 'g++ main.cpp -o output'
+                script {
+                    // Assuming 'PES2UG21CS586-1' is a parameter, otherwise replace it with your appropriate build command
+                    build 'PES2UG21CS586-1'
+                    sh 'g++ main.cpp -o output'
+                }
             }
         }
         stage('Test') {
             steps {
-                sh './output'
+                script {
+                    sh './output'
+                }
             }
         }
         stage('Deploy') {
             steps {
-                echo 'deploy'
+                script {
+                    echo 'deploy'
+                    // Add your deployment steps here
+                }
             }
         }
     }
-post{
-    failure{
-        error 'Pipeline failed'
+    post {
+        failure {
+            script {
+                error 'Pipeline failed'
+            }
+        }
     }
 }
-}            
+
