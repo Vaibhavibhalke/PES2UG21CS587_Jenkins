@@ -23,7 +23,7 @@ pipeline {
               
     post {
           failure {
-              error 'Pipeline Failed
+              error 'Pipeline Failed'
           }
      }
     
