@@ -5,7 +5,7 @@
             steps {
                 script {
                     // Assuming 'PES2UG21CS586-1' is a parameter, otherwise replace it with your appropriate build command
-                    build 'PES2UG21CS586-1'
+                    build 'PES2UG21CS587-1'
                     sh 'g++ main.cpp -o output'
                 }
             }
